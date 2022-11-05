@@ -25,6 +25,12 @@ module.exports = {
         "@typescript-eslint/naming-convention": "off",
       },
     },
+    {
+      files: ["src/**/server/**/*.ts"],
+      rules: {
+        "new-cap": "off",
+      },
+    },
   ],
   parserOptions: {
     ecmaVersion: "latest",
