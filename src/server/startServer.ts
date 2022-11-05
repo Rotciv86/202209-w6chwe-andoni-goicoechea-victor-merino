@@ -1,15 +1,13 @@
-import debugCreator from "debug";
+import Debug from "debug";
 import chalk from "chalk";
-import express from "express";
+import app from "./index.js";
 
-const app = express();
-
-const debug = debugCreator("robots:server:startSever");
+const debug = Debug("robots:server:startSever");
 
 const startServer = async (port: number) =>
   new Promise((resolve, reject) => {
     const server = app.listen(port, () => {
-      debug(chalk.green(`Server listening on http://localhost:${port}`));
+      debug(chalk.blue(`Server listening on http://localhost:${port}`));
       resolve(true);
     });
 

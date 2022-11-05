@@ -4,7 +4,7 @@ import startServer from "./server/startServer.js";
 import errorEndpoint from "./server/middlewares/error.js";
 import express from "express";
 
-const { PORT: port, DB: databaseUrl } = process.env;
+const { PORT: port, MONGO_URL: databaseUrl } = process.env;
 
 const app = express();
 
