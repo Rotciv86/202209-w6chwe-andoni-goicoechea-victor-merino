@@ -1,14 +1,26 @@
 import type { Request, Response, NextFunction } from "express";
+import mongoose from "mongoose";
 import Robot from "../../database/models/Robots";
-import getRobots from "./robotsControllers";
+import { deleteRobot, getRobots } from "./robotsControllers";
+
+const robots = [
+  {
+    id: "6367f26f7c177fa66482035e",
+  },
+];
+
+const res: Partial<Response> = {
+  status: jest.fn().mockReturnThis(),
+  json: jest.fn(),
+};
+const next = jest.fn() as Partial<NextFunction>;
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
 
 describe("Given a getRobots controller", () => {
   const req: Partial<Request> = {};
-  const res: Partial<Response> = {
-    status: jest.fn().mockReturnThis(),
-    json: jest.fn(),
-  };
-  const next = jest.fn() as Partial<NextFunction>;
 
   describe("When it receives a response and find return list of robots", () => {
     test("Then it should call the respond method status with 200 code", async () => {
