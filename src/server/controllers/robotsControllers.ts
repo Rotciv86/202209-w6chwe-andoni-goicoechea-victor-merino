@@ -14,7 +14,7 @@ export const getRobots = async (
   try {
     debug("Request /robots");
     const robotsList = await Robot.find();
-    res.status(200).json({ robots: robotsList });
+    res.status(200).json(robotsList);
   } catch (error: unknown) {
     next(
       new CustomError(
